@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Participant Speech Recording</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">Research speech collection</p>
+      <h1>Participant recording</h1>
+      <p class="intro">Enter your details, choose a language and session, then record in a quiet place.</p>
+    </header>
+
+    <section class="privacy" aria-label="Privacy information">
+      Your name and roll number are used to find your participant record. Recordings are saved to the research computer. Speak only after the researcher has explained the study and obtained your consent.
+    </section>
+
+    <section id="registration" class="card">
+      <h2>Participant details</h2>
+      <form id="registration-form">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" maxlength="200" required>
+        <label for="roll">Roll number</label>
+        <input id="roll" name="roll_number" autocomplete="off" maxlength="64" required>
+        <button type="submit">Continue</button>
+      </form>
+    </section>
+
+    <section id="session-selection" class="card hidden">
+      <h2>Choose a recording session</h2>
+      <form id="session-form" class="selection-form">
+        <div>
+          <label for="language">Language</label>
+          <select id="language" required>
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="telugu">Telugu</option>
+            <option value="khasi">Khasi</option>
+          </select>
+        </div>
+        <div>
+          <label for="session">Session</label>
+          <select id="session" required>
+            <option value="1">Session 1 · read sentences</option>
+            <option value="2">Session 2 · read sentences</option>
+            <option value="3">Session 3 · spontaneous speech</option>
+          </select>
+        </div>
+        <button type="submit">Load session</button>
+      </form>
+      <button id="switch-participant" class="secondary switch-participant" type="button">Not you? Start with another participant</button>
+    </section>
+
+    <section id="recorder" class="card hidden" aria-live="polite">
+      <div class="session-heading">
+        <div><p class="eyebrow" id="session-label"></p><h2 id="progress"></h2></div>
+        <div class="heading-actions"><button id="change-session" class="secondary" type="button">Change session</button><button id="switch-participant-recorder" class="secondary" type="button">Switch participant</button></div>
+      </div>
+      <div id="notice" class="notice hidden"></div>
+      <div id="prompt-area" class="prompt-area hidden">
+        <p class="prompt-label">Current prompt</p>
+        <p id="prompt-text" class="prompt"></p>
+        <p id="topic" class="topic hidden"></p>
+        <p id="record-status" class="record-status">Ready to record</p>
+        <div class="controls">
+          <button id="record-button" type="button">Start recording</button>
+          <span id="timer" class="timer">00:00</span>
+          <button id="skip-button" class="secondary" type="button">Skip for now</button>
+        </div>
+      </div>
+      <div id="complete-area" class="complete-area hidden"></div>
+    </section>
+
+    <p id="global-error" class="error hidden" role="alert"></p>
+    <footer>Recordings are not sent to a cloud service. Keep this page open while recording and uploading.</footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

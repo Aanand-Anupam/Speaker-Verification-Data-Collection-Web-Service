@@ -1,0 +1,1 @@
+"""Deployable collection API."""

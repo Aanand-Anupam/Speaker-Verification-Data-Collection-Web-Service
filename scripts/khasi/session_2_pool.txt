@@ -1,0 +1,100 @@
+R2_001	Ha ka step, ka sngi ka phyrnai bha.
+R2_002	Ka shnong jong ngi ka don hapdeng ki lum.
+R2_003	U kpa u leit sha iew ban thied ïa ki jhur.
+R2_004	Ki khynnah ki pule ha skul man ka step.
+R2_005	Ka kmie ka pynkhreh ïa ka bam ha ïing.
+R2_006	Nga ju shong ha madan ban peit ïa ka sngi kaba sep.
+R2_007	Ka wah kaba rit ka tuid lyngba ka shnong.
+R2_008	U paralok jong nga u rah ïa ka pla kaba heh.
+R2_009	Ka sim kaba rit ka shong halor ka tnat dieng.
+R2_010	Ngi la thied ïa ki soh na ka dukan hajan surok.
+R2_011	Ka lyer kaba khriat ka wan na ki lum.
+R2_012	Ki briew ki ap ïa ka kali ha surok.
+R2_013	Ka khun jong ka ka sngewtynnad ban shna dur.
+R2_014	U nonghikai u batai ïa ka jinghikai ha klas.
+R2_015	Ka ïing thymmai jong ki ka don saw kamra.
+R2_016	Nga pule kot man la ka miet.
+R2_017	Ka sngi Saitjaiñ ka long ka sngi ban shongthait.
+R2_018	U briew u rah ïa ka khiew um.
+R2_019	Ki briew ha shnong ki pynlong ïa ka jingïalang ha janmiet.
+R2_020	Ka khynnah ka rwai ïa ka jingrwai ha klas.
+R2_021	Ha ka por slap, ngi rah ïa ki umbrella ban leit shabar.
+R2_022	Ka dukan ha khmat surok ka die ïa ki tiar kiba bun jait.
+R2_023	Ki samla ki ialehkai phutbol ha madan hadien ka sngi trei.
+R2_024	U paidbah u sngap ïa ka jingrwai na ka radio.
+R2_025	Ka lyer ka pynkhih ïa ki sla dieng ha khmat ïing.
+R2_026	Nga thoh ïa ka kyrteng jong nga ha ka kot thymmai.
+R2_027	Ka kali ka sangeh hajan ka ïing jong ka.
+R2_028	Ki khynnah ki sngewkmen ban leit jngoh ïa ka jaka mane.
+R2_029	U briew u sait ïa ki tiar hadien ka bamja.
+R2_030	Ka shnong ka paw itynnad haba ka sngi ka sep.
+R2_031	Ngi la ap slem ha ka jaka pynïeng kali.
+R2_032	Ka kmie ka ai umphniang sha ki khun jong ka.
+R2_033	Ki dieng heh ki ai syrngiew ha ka por shit.
+R2_034	U samla u rwai da ka sur kaba jem.
+R2_035	Ka samla pule ka thoh ïa ki jingtip ha ka kot.
+R2_036	Ka pung kaba jylliew ka don hajan ka shnong.
+R2_037	Ha ka miet, ki khlur ki phyrnai ha bneng.
+R2_038	U nongdie soh u buh ïa ki soh ha ka shyngoid.
+R2_039	Ngi la pynkhuid ïa ka kamra shuwa ba kin wan ki nongwan jngoh.
+R2_040	Ka sim ka her na ka tnat sha kawei pat ka tnat.
+R2_041	Ki briew ki ïaid suki lyngba ka lynti kaba rit.
+R2_042	U kpa u ai ka kot jingïathuhkhana sha u khun.
+R2_043	Ka jingrwai na ka jingïalang ka pynsngewbha ïa nga.
+R2_044	Ka samla ka sait ïa ki jaiñ ha ka por mynstep.
+R2_045	Ngi la shem ïa ka lynti kaba lyngkot sha iew.
+R2_046	Ki khynnah ki pynbeit ïa ki tiar ialehkai hadien ba ki la pyndonkam.
+R2_047	Ka sngi ka paw na lyndet ki lyoh kiba iong.
+R2_048	U nonghikai u ai jingiaroh ïa ki samla pule kiba trei bha.
+R2_049	Nga dih kopi bad pule ïa ka khubor jong ka sngi.
+R2_050	Ka lynti sha ka shnong ka iaid lyngba ki lum bad ki dieng.
+R2_051	Ki nongrep ki trei ha lyngkha naduh dang step.
+R2_052	Ka jingïing jong ki ka don hajan ka wah.
+R2_053	U briew u khot ïa la u paralok ban wan sha ïing.
+R2_054	Ka khynnah ka rah ïa ka umbrella kaba saw.
+R2_055	Ngi la sngap ïa ka sur jong ka um kaba tuid na ki maw.
+R2_056	Ka dukan kot ka plie ha ka por phra baje mynstep.
+R2_057	Ki kynthei ki thied jhur bad soh na iew.
+R2_058	U samla u wad ïa ka kot kaba u la buh hajan ka miej.
+R2_059	Ka lyer kaba khlaiñ ka pynkhih ïa ka jingkhang.
+R2_060	Ngi la shong hapoh ka ïing haduh ba u slap u la sangeh.
+R2_061	Ka khunlung ka ïohthiah ha ka jingthiah jong ka.
+R2_062	U kpa u pynbha ïa ka shaka kaba la sniew.
+R2_063	Ki samla pule ki ïakren shaphang ka jinghikai kaba thymmai.
+R2_064	Ka sngi ka shai bha hadien ba la jah ki lyoh.
+R2_065	Nga sngap ïa ki jingrwai Khasi ha ka por miet.
+R2_066	Ka shnong jong ngi ka don ka skul bad ka dukan rit.
+R2_067	Ki briew ki bam ja lang ha ka por miet.
+R2_068	U nongñiah kali u pynher suki ha ka surok kaba rit.
+R2_069	Ka kmie ka buh ïa ki syntiew ha ka khiew ha miej.
+R2_070	Ngi la leit kjat sha ka lum ban peit ïa ka shnong.
+R2_071	Ki sim ki shong ha ka tnat dieng hajan ka khyndew.
+R2_072	Ka samla ka pule ïa ka shithi kaba la wan mynta ka sngi.
+R2_073	U briew u thied ïa ka jaiñ kaba rong blue na iew.
+R2_074	Ka khynnah ka kmen haba ka ïoh ïa ka kot dur.
+R2_075	Ngi la buh ïa ki tiar bam ha ka miej.
+R2_076	Ka lynti ka long kaba jngai hynrei kaba itynnad.
+R2_077	U nongtrei u sdang ïa ka kam ha ka por mynstep.
+R2_078	Ki khun ki iarap ïa la ka kmie ban pynkhuid ïa ka ïing.
+R2_079	Ka sur jong ka um ka pynjah thait ïa nga.
+R2_080	Ka kali kaba thymmai ka wan na Shillong mynta ka sngi.
+R2_081	Ngi la pynlong ïa ka jingrakhe ha ka shnong jong ngi.
+R2_082	Ka samla pule ka pyrshang ban kren ha ka ktien Khasi.
+R2_083	Ki briew ki ïaid ha ka lynti kaba iaid lyngba ka lyngkha.
+R2_084	U kpa u wanphai na ka kam ha janmiet.
+R2_085	Ka kmie ka buh ïa u khaw ha ka pliang kaba heh.
+R2_086	Ki khynnah ki peit ïa ka dur jong ki lum ha ka kot.
+R2_087	Ka sngi kaba bha ka ai mynsiem ïa ki nongrep.
+R2_088	Ngi la pynïeng ïa ka shaka hajan ka dukan.
+R2_089	U paralok jong nga u wan da ka kali ha ka por miet.
+R2_090	Ka khynnah ka pynbeit ïa ki kot ha ka pla skul.
+R2_091	Ki syntiew kiba lieh ki mih ha ka por lyiur.
+R2_092	U nonghikai u sngap bha haba ki samla ki kylli jingkylli.
+R2_093	Ka shnong ka long kaba jar jar ha ka por step.
+R2_094	Ngi la thied ïa ki jaiñ thymmai shuwa ka jingrakhe.
+R2_095	Ka sim kaba heh ka her halor ka wah.
+R2_096	U samla u peit ïa ka por ha ka kali kaba rit.
+R2_097	Ka ïing ka dap da ka jingsngewkmen haba wan ki paralok.
+R2_098	Ki khynnah ki ïarap ban thung ïa ki dieng ha ka skul.
+R2_099	Ka lyer mynmiet ka pynkhriat ïa ka kamra.
+R2_100	Hadien ka sngi trei kaba jrong, ngi shongthait ha ïing.

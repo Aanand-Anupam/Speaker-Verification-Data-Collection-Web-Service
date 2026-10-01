@@ -1,0 +1,27 @@
+languages:
+  english: {target: 100}
+  hindi: {target: [60, 70]}
+  telugu: {target: 30}
+  khasi: {target: 20}
+audio:
+  sample_rate: 16000
+  channels: 1
+  sample_width: 16
+  supported_extensions: [.wav, .mp3, .m4a, .flac, .ogg, .aac, .wma]
+recording:
+  sessions_per_language: 2
+  read_utterances_per_session: 10
+  max_utterance_duration_seconds: 30
+quality:
+  min_duration_seconds: 0.5
+  max_duration_seconds: 30
+  min_rms: 0.005
+  max_silence_ratio: 0.8
+  clipping_peak: 0.999
+  clipping_ratio: 0.001
+paths:
+  raw: data/raw
+  processed: data/processed
+  metadata: data/metadata
+  participant_mapping: data/private/participants.csv
+  scripts: scripts

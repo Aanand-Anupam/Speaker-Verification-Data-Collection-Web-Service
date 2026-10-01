@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: multilingual-speaker-collection-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: STORAGE_BACKEND
+        value: supabase
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SUPABASE_AUDIO_BUCKET
+        value: speaker-audio
+      - key: APP_SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        sync: false

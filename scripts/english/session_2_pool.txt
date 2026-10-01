@@ -1,0 +1,100 @@
+E2_001	A light rain began shortly after the sun went down.
+E2_002	The small bakery opens before most shops on the street.
+E2_003	Our class discussed how people share ideas across generations.
+E2_004	A clear sign helped visitors find the museum entrance.
+E2_005	She placed the fresh vegetables carefully in a paper bag.
+E2_006	The old bridge connects two neighborhoods beside the river.
+E2_007	He checks the bus schedule before leaving his apartment.
+E2_008	Several colorful kites moved slowly above the open field.
+E2_009	The science club meets every Thursday after the final lesson.
+E2_010	A warm cup of tea made the evening feel calmer.
+E2_011	The gardener watered each plant before the afternoon heat.
+E2_012	We found a shaded bench near the entrance to the park.
+E2_013	My neighbor grows herbs in small pots on the balcony.
+E2_014	A short message reminded everyone about the meeting time.
+E2_015	The shopkeeper wrapped the glass bottle in recycled paper.
+E2_016	Clouds gathered over the hills as we returned home.
+E2_017	The musician tuned her instrument before the room filled.
+E2_018	A new path makes the walk to campus much easier.
+E2_019	They shared a simple lunch beneath a wide tree.
+E2_020	The clock above the doorway was five minutes fast.
+E2_021	A bright lamp made the narrow hallway easier to see.
+E2_022	We compared notes after finishing the group assignment.
+E2_023	The morning market was already lively when we arrived.
+E2_024	He carefully folded the map and returned it to his pocket.
+E2_025	The school garden attracts butterflies during the warmer months.
+E2_026	A friendly guide explained the building's history to our group.
+E2_027	She chose a seat beside the window on the train.
+E2_028	The paper boat floated briefly along the edge of the pond.
+E2_029	We packed extra water for the long walk uphill.
+E2_030	The bright poster announced a free music event downtown.
+E2_031	A narrow lane leads from the station to the square.
+E2_032	The team practiced its presentation in an empty classroom.
+E2_033	He saved the recipe in a notebook for later.
+E2_034	The evening breeze carried the smell of flowers nearby.
+E2_035	A careful count confirmed that every book had been returned.
+E2_036	She listened closely while the instructor described the exercise.
+E2_037	The river looked silver beneath the early morning light.
+E2_038	We took turns choosing songs for the journey.
+E2_039	The community hall will host a language exchange this weekend.
+E2_040	A small bell rang when the shop door opened.
+E2_041	He placed the clean cups on a wooden tray.
+E2_042	The road became quieter after the evening traffic passed.
+E2_043	Our project became clearer after we organized the notes.
+E2_044	A paper calendar hangs beside the kitchen doorway.
+E2_045	The train crossed a green valley on its way north.
+E2_046	They watched the clouds change shape above the rooftops.
+E2_047	The new reading room has comfortable chairs and bright windows.
+E2_048	She carried a reusable bottle during the afternoon walk.
+E2_049	A small repair kept the classroom fan working smoothly.
+E2_050	We waited under the shelter until the rain became lighter.
+E2_051	The baker arranged warm rolls in a basket near the counter.
+E2_052	A quiet courtyard separates the office from the main street.
+E2_053	He learned the route by walking it with a friend.
+E2_054	The local team planted trees along the walking path.
+E2_055	Several people shared useful suggestions during the workshop.
+E2_056	The museum displays tools used by craftspeople long ago.
+E2_057	A soft melody came from the room upstairs.
+E2_058	We checked the weather before planning our picnic.
+E2_059	The blue notebook contains sketches from the weekend trip.
+E2_060	She opened the curtains to let in the morning light.
+E2_061	The train platform was less crowded after the first departure.
+E2_062	A helpful label showed how to sort the paper waste.
+E2_063	Our group finished the poster before the library closed.
+E2_064	The children followed a trail of footprints through the sand.
+E2_065	He borrowed a book about rivers and mountain landscapes.
+E2_066	A steady rhythm helped the dancers stay together.
+E2_067	The corner store sells fruit from nearby farms.
+E2_068	We moved the chairs into a circle for the discussion.
+E2_069	The bright scarf stood out against the gray coat.
+E2_070	She wrote a short note to thank the volunteers.
+E2_071	The morning bus stopped beside the green building.
+E2_072	A clean table made room for the afternoon activity.
+E2_073	They found the missing key beneath a folded newspaper.
+E2_074	The walking trail passes a stream and two wooden gates.
+E2_075	He spoke slowly so everyone could follow the directions.
+E2_076	A fresh breeze entered through the open classroom windows.
+E2_077	We arranged the chairs before the guests arrived.
+E2_078	The fruit seller offered a ripe pear for everyone to taste.
+E2_079	The small theater presents a different play each month.
+E2_080	She turned off the lights before leaving the study room.
+E2_081	A row of lamps lit the path beside the lake.
+E2_082	The afternoon lesson included a short conversation exercise.
+E2_083	We carried the supplies upstairs in two sturdy boxes.
+E2_084	The old photograph showed a busy street many years ago.
+E2_085	A clear voice announced the next stop on the journey.
+E2_086	He placed the finished drawing on the classroom wall.
+E2_087	The village library lends books to readers of every age.
+E2_088	A gentle slope leads from the garden to the pond.
+E2_089	They shared ideas while preparing the community noticeboard.
+E2_090	The round table was large enough for the whole group.
+E2_091	She checked the list before packing her travel bag.
+E2_092	A line of bicycles stood beside the station entrance.
+E2_093	The music stopped briefly when the room lost power.
+E2_094	We found a shaded route through the botanical garden.
+E2_095	The student asked a thoughtful question about the demonstration.
+E2_096	A wooden sign points toward the river and the picnic area.
+E2_097	He brought extra paper for the drawing activity.
+E2_098	The evening class ended with a short reading exercise.
+E2_099	Several bright flowers grew beside the stone pathway.
+E2_100	We returned the borrowed equipment to the storage room.
