@@ -54,21 +54,41 @@ class LocalRepository:
             row["participant_uuid"] = row.get("participant_uuid") or str(uuid.uuid5(uuid.NAMESPACE_URL, "speaker-dataset:" + normalized))
         return rows
 
-    def register_participant(self, name: str, roll_number: str):
-        name = " ".join(str(name).strip().split())
-        if not name or len(name) > 200 or any(ord(ch) < 32 for ch in name): raise ValueError("Enter a name of 1–200 characters.")
-        roll, normalized = _roll(roll_number)
-        with self.lock:
-            rows = self._participants()
-            row = next((item for item in rows if item["roll_number_normalized"] == normalized), None)
-            returning = row is not None
-            if row is None:
-                row = {"participant_uuid": str(uuid.uuid4()), "roll_number": roll, "roll_number_normalized": normalized, "name": name, "speaker_id": self._next_speaker_id(rows)}
-                rows.append(row)
-            else: row["name"] = name
-            _write_csv(self.participants_path, rows, PARTICIPANT_COLUMNS)
-            self._ensure_speaker_row(row["speaker_id"])
-            return {"participant_id": row["participant_uuid"], "speaker_id": row["speaker_id"], "is_returning": returning}
+    
+def register_participant(self, name, roll_number):
+    name = " ".join(str(name).strip().split())
+    roll, _ = _roll(roll_number)
+
+    if not name or len(name) > 200 or any(ord(ch) < 32 for ch in name):
+        raise ValueError("Enter a name of 1–200 characters.")
+
+    result = self.client.rpc(
+        "register_participant",
+        {"p_name": name, "p_roll_number": roll}
+    ).execute()
+
+    data = self._one(result)
+
+    # PostgreSQL JSONB results may arrive as a JSON string.
+    if isinstance(data, str):
+        data = json.loads(data)
+
+    if not isinstance(data, dict):
+        raise RuntimeError(
+            f"Unexpected registration response type: {type(data).__name__}"
+        )
+
+    required = {"participant_id", "speaker_id", "is_returning"}
+    if not required.issubset(data):
+        raise RuntimeError(
+            "Registration response is missing required fields."
+        )
+
+    return {
+        "participant_id": str(data["participant_id"]),
+        "speaker_id": data["speaker_id"],
+        "is_returning": bool(data["is_returning"]),
+    }
 
     def _next_speaker_id(self, participants):
         used = set()
