@@ -55,40 +55,40 @@ class LocalRepository:
         return rows
 
     
-def register_participant(self, name, roll_number):
-    name = " ".join(str(name).strip().split())
-    roll, _ = _roll(roll_number)
+    def register_participant(self, name, roll_number):
+        name = " ".join(str(name).strip().split())
+        roll, _ = _roll(roll_number)
 
-    if not name or len(name) > 200 or any(ord(ch) < 32 for ch in name):
-        raise ValueError("Enter a name of 1–200 characters.")
+        if not name or len(name) > 200 or any(ord(ch) < 32 for ch in name):
+            raise ValueError("Enter a name of 1–200 characters.")
 
-    result = self.client.rpc(
-        "register_participant",
-        {"p_name": name, "p_roll_number": roll}
-    ).execute()
+        result = self.client.rpc(
+            "register_participant",
+            {"p_name": name, "p_roll_number": roll}
+        ).execute()
 
-    data = self._one(result)
+        data = self._one(result)
 
-    # PostgreSQL JSONB results may arrive as a JSON string.
-    if isinstance(data, str):
-        data = json.loads(data)
+        # PostgreSQL JSONB results may arrive as a JSON string.
+        if isinstance(data, str):
+            data = json.loads(data)
 
-    if not isinstance(data, dict):
-        raise RuntimeError(
-            f"Unexpected registration response type: {type(data).__name__}"
-        )
+        if not isinstance(data, dict):
+            raise RuntimeError(
+                f"Unexpected registration response type: {type(data).__name__}"
+            )
 
-    required = {"participant_id", "speaker_id", "is_returning"}
-    if not required.issubset(data):
-        raise RuntimeError(
-            "Registration response is missing required fields."
-        )
+        required = {"participant_id", "speaker_id", "is_returning"}
+        if not required.issubset(data):
+            raise RuntimeError(
+                "Registration response is missing required fields."
+            )
 
-    return {
-        "participant_id": str(data["participant_id"]),
-        "speaker_id": data["speaker_id"],
-        "is_returning": bool(data["is_returning"]),
-    }
+        return {
+            "participant_id": str(data["participant_id"]),
+            "speaker_id": data["speaker_id"],
+            "is_returning": bool(data["is_returning"]),
+        }
 
     def _next_speaker_id(self, participants):
         used = set()
