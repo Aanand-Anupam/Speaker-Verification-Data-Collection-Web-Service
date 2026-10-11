@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -13,6 +14,7 @@ from .storage import LocalAudioStorage, SupabaseAudioStorage
 
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024
 
+logger = logging.getLogger(__name__)
 
 class RegistrationRequest(BaseModel):
     name: str = Field(min_length=1, max_length=200)
@@ -48,10 +50,22 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.post("/api/participants/register")
     def register(body: RegistrationRequest):
-        try: return service.register(body.name, body.roll_number)
-        except ValueError as exc: raise HTTPException(status_code=422, detail=str(exc)) from exc
-        except Exception as exc: raise HTTPException(status_code=503, detail="Participant registration could not be saved.") from exc
+        try:
+            return service.register(body.name, body.roll_number)
 
+        except ValueError as exc:
+            raise HTTPException(
+                status_code=422,
+                detail=str(exc)
+            ) from exc
+
+        except Exception as exc:
+            logger.exception("Participant registration failed")
+            raise HTTPException(
+                status_code=503,
+                detail="Participant registration could not be saved."
+            ) from exc
+        
     @app.get("/api/sessions/{language}/{session_number}")
     def session(language: str, session_number: int, participant: str = Depends(participant_id)):
         try: return service.session(participant, language.lower(), session_number)
