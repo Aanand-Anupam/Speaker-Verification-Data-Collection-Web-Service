@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from .repository import LocalRepository, SupabaseRepository
+from .prompts import PromptUnavailable
 from .security import read_token
 from .service import CollectionService
 from .settings import Settings
@@ -69,9 +70,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     @app.get("/api/sessions/{language}/{session_number}")
     def session(language: str, session_number: int, participant: str = Depends(participant_id)):
         try: return service.session(participant, language.lower(), session_number)
-        except FileNotFoundError as exc: raise HTTPException(status_code=503, detail="The prompt file is not available.") from exc
+        except (FileNotFoundError, PromptUnavailable) as exc: raise HTTPException(status_code=503, detail="The prompt file is not available or is not ready for collection.") from exc
         except ValueError as exc: raise HTTPException(status_code=422, detail=str(exc)) from exc
-        except Exception as exc: raise HTTPException(status_code=503, detail="Could not load the selected session.") from exc
+        except Exception as exc:
+            logger.exception("Session loading failed")
+            raise HTTPException(status_code=503, detail="Could not load the selected session.") from exc
 
     @app.put("/api/recordings/{language}/{session_number}/{utterance_number}")
     async def upload(language: str, session_number: int, utterance_number: int, request: Request, participant: str = Depends(participant_id)):
@@ -82,7 +85,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         try: return await run_in_threadpool(service.upload, participant, language.lower(), session_number, utterance_number, payload)
         except FileExistsError as exc: raise HTTPException(status_code=409, detail=str(exc)) from exc
         except ValueError as exc: raise HTTPException(status_code=422, detail=str(exc)) from exc
-        except Exception as exc: raise HTTPException(status_code=503, detail="Upload failed. Your recording was not marked complete; please retry.") from exc
+        except Exception as exc:
+            logger.exception("Audio upload or metadata update failed")
+            raise HTTPException(status_code=503, detail="Upload failed. Your recording was not marked complete; please retry.") from exc
 
     return app
 

@@ -5,7 +5,12 @@ const LANGUAGES = ["english", "hindi", "telugu", "khasi"];
 
 async function api(path, options = {}) {
   const response = await fetch(`${API}${path}`, options);
-  const body = await response.json().catch(() => ({}));
+  const text = await response.text();
+  let body = {};
+  if (text) {
+    try { body = JSON.parse(text); }
+    catch { body = { detail: response.ok ? "The server returned an invalid response." : text.slice(0, 300) }; }
+  }
   if (!response.ok)
     throw new Error(body.detail || `Request failed (${response.status}).`);
   return body;
@@ -101,13 +106,12 @@ export default function App() {
     setError("");
     setMessage("");
     setBusy(true);
-    setPlan(null);
-    setSkipped(new Set());
     try {
       const result = await api(`/api/sessions/${language}/${session}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPlan(result);
+      setSkipped(new Set());
     } catch (e) {
       setError(e.message);
     } finally {

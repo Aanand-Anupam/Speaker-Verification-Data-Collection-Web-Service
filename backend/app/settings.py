@@ -28,12 +28,13 @@ class Settings:
         with (root / "config.yaml").open(encoding="utf-8") as stream:
             config = yaml.safe_load(stream) or {}
         origins = [item.strip() for item in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if item.strip()]
+        supabase_key = os.getenv("SUPABASE_SECRET_KEY", "").strip() or os.getenv("SUPABASE_SERVICE_ROLE_KEY", "").strip()
         return cls(
             project_root=root,
             storage_backend=os.getenv("STORAGE_BACKEND", "local").lower(),
             app_secret_key=os.getenv("APP_SECRET_KEY", "local-development-only-change-me"),
             supabase_url=os.getenv("SUPABASE_URL", ""),
-            supabase_service_role_key=os.getenv("SUPABASE_SECRET_KEY", os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")),
+            supabase_service_role_key=supabase_key,
             supabase_bucket=os.getenv("SUPABASE_AUDIO_BUCKET", "speaker-audio"),
             allowed_origins=origins,
             config=config,
@@ -57,7 +58,10 @@ class Settings:
     def validate(self):
         if self.storage_backend not in ("local", "supabase"):
             raise ValueError("STORAGE_BACKEND must be local or supabase.")
-        if self.storage_backend == "supabase" and not (self.supabase_url and self.supabase_service_role_key):
+        key = self.supabase_service_role_key.strip()
+        valid_secret_key = key.startswith("sb_secret_") and len(key) >= 30
+        valid_legacy_jwt = key.startswith("eyJ") and len(key.split(".")) == 3 and all(key.split("."))
+        if self.storage_backend == "supabase" and (not self.supabase_url.startswith("https://") or not (valid_secret_key or valid_legacy_jwt)):
             raise ValueError("Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY for Supabase mode.")
         if self.storage_backend == "supabase" and len(self.app_secret_key) < 32:
             raise ValueError("Set APP_SECRET_KEY to a random value of at least 32 characters in Supabase mode.")

@@ -183,6 +183,19 @@ class SupabaseRepository:
         if isinstance(data, list): return data[0] if data else None
         return data
 
+    @staticmethod
+    def _jsonb_object(data, operation):
+        # PostgREST normally decodes jsonb into a Python dict. Accept the JSON
+        # text representation only when it is actually an object.
+        if isinstance(data, str) and data.lstrip().startswith("{"):
+            try:
+                data = json.loads(data)
+            except json.JSONDecodeError as exc:
+                raise RuntimeError(f"{operation} returned malformed JSON.") from exc
+        if not isinstance(data, dict):
+            raise RuntimeError(f"{operation} returned an unexpected response.")
+        return data
+
     
     def register_participant(self, name, roll_number):
         name = " ".join(str(name).strip().split())
@@ -198,17 +211,10 @@ class SupabaseRepository:
             ).execute()
         )
 
-        # Decode the JSON string returned by Supabase, if necessary.
-        if isinstance(data, str):
-            data = json.loads(data)
-
-        if not isinstance(data, dict):
-            raise RuntimeError(
-                "Participant registration returned an unexpected response."
-            )
-
-        if not data:
-            raise RuntimeError("Participant registration returned no record.")
+        data = self._jsonb_object(data, "Participant registration")
+        required = {"participant_id", "speaker_id", "is_returning"}
+        if not required.issubset(data):
+            raise RuntimeError("Participant registration returned an incomplete record.")
 
         return {
             "participant_id": str(data["participant_id"]),
@@ -223,18 +229,24 @@ class SupabaseRepository:
         prompts = prompt_pool if session_number == 1 else random.SystemRandom().sample(prompt_pool, self.settings.utterances_per_session)
         payload = [{"utterance_number": i, **prompt} for i, prompt in enumerate(prompts, 1)]
         result = self.client.rpc("assign_session_prompts", {"p_participant_id": participant_id, "p_language": language, "p_session_number": session_number, "p_prompts": payload}).execute().data
-        if isinstance(result, str): result = json.loads(result)
-        if isinstance(result, dict) and "assign_session_prompts" in result: result = result["assign_session_prompts"]
-        rows = result if isinstance(result, list) else []
+        if not isinstance(result, list) or len(result) != self.settings.utterances_per_session:
+            raise RuntimeError("Session prompt assignment returned an incomplete row set.")
+        rows = result
         person = self.participant(participant_id)
+        if not person:
+            raise RuntimeError("Session participant could not be loaded after prompt assignment.")
         for row in rows:
+            if not isinstance(row, dict) or not {"utterance_number", "sentence_id", "sentence_text", "status"}.issubset(row):
+                raise RuntimeError("Session prompt assignment returned a malformed row.")
             row["speaker_id"] = person["speaker_id"]; row["language"] = language; row["session_number"] = session_number
             row["utterance_id"] = f"U{int(row['utterance_number']):02d}"
             row["raw_path"] = f"data/raw/{person['speaker_id']}/{language}/session_{session_number}/{person['speaker_id']}_{language}_S{session_number}_{row['utterance_id']}.wav"
         return rows
 
     def mark_uploaded(self, participant_id, language, session_number, utterance_number, storage_path, duration_seconds):
-        self.client.table("utterances").update({"status": "completed", "storage_path": storage_path, "duration_seconds": duration_seconds}).eq("participant_id", participant_id).eq("language", language).eq("session_number", session_number).eq("utterance_number", utterance_number).execute()
+        result = self.client.table("utterances").update({"status": "completed", "storage_path": storage_path, "duration_seconds": duration_seconds}).eq("participant_id", participant_id).eq("language", language).eq("session_number", session_number).eq("utterance_number", utterance_number).select("utterance_id").execute()
+        if not isinstance(result.data, list) or len(result.data) != 1:
+            raise RuntimeError("Recording metadata was not updated for exactly one assigned utterance.")
 
     def completed_rows(self):
         return [row for row in self.all_utterances() if row.get("status") == "completed"]
